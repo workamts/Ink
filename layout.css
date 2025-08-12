@@ -1,0 +1,247 @@
+/*==============================
+=   Pensieve - CSS
+=   File: layout.css
+==============================*/
+
+/*======================================
+=   CSS VARIABLES (Custom Properties)
+======================================*/
+
+:root {
+    --bg:#0f1112;
+    --card:#f8f9fa;
+    --muted:#9aa0a6;
+    --accent:#D81B60;    /* rosa fucsia (acento) */
+    --accent-2:#FFD54F;  /* amarillo suave (acento secundario) */
+    --panel:#ffffff;
+}
+
+
+
+/*======================================
+=   RESET STYLES
+======================================*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+/*======================================
+=   BODY AND BASE STYLES
+======================================*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#222;
+    background: #f4f6f8;
+    word-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: color .4s, background-color .4s;
+}
+
+::selection {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/*======================================
+=   HEADER SECTION
+======================================*/
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(16,18,20,0.98), rgba(20,22,24,0.98));
+}
+
+#logo {
+    width: 64px;
+    height: 64px;
+}
+
+
+
+/*======================================
+=   HERO SECTION
+======================================*/
+
+/* Hero */
+.hero {
+    min-height: 100vh;
+    border: 1px solid #f00;
+    padding-top:48px;
+    padding-bottom:48px
+}
+
+.container {
+    border: 1px solid #f00;
+}
+
+.hero .display-5{font-weight:700; color:#111; margin-bottom:8px}
+.hero .lead{color:var(--muted); margin-bottom:12px}
+.btn-accent{
+    background: var(--accent);
+    color: white;
+    border: 1px solid #f00;
+    border: 0;
+    padding: .65rem 1.15rem;
+    border-radius:10px;
+    box-shadow: 0 6px 18px rgba(216,27,96,0.12);
+}
+.btn-accent:hover{filter:brightness(.95)}
+
+/* Illustration styles */
+.illustration{width:380px; height:220px; display:flex; align-items:center; justify-content:center}
+.illus-svg{width:100%; height:100%}
+.rect1{transform-origin: center; animation: floatRect 6s ease-in-out infinite;}
+.rect2{transform-origin: center; animation: slideGlow 5s ease-in-out infinite;}
+.circle1{animation: pop 4s ease-in-out infinite;}
+.floating-squares rect{ animation: floatSmall 4s ease-in-out infinite; }
+
+@keyframes floatRect{
+    0%{transform:translateY(0) rotate(0deg)}
+    50%{transform:translateY(-8px) rotate(2deg)}
+    100%{transform:translateY(0) rotate(0deg)}
+}
+@keyframes slideGlow{
+    0%{transform:translateX(0)}
+    50%{transform:translateX(6px)}
+    100%{transform:translateX(0)}
+}
+@keyframes pop{ 0%{transform:scale(1)} 50%{transform:scale(1.03)} 100%{transform:scale(1)}}
+@keyframes floatSmall{
+    0%{transform:translateY(0)}
+    50%{transform:translateY(-6px)}
+    100%{transform:translateY(0)}
+}
+
+/* Generator card */
+#generator {
+    border: 1px solid #f00;
+}
+
+#generator .card {
+    background:var(--card);
+    border-radius:12px;
+    border: 1px solid #f00;
+}
+#result-grid .color-square{
+    height:120px;
+    border-radius:8px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    cursor:pointer;
+    border:1px solid rgba(0,0,0,0.06);
+    transition:transform .16s ease, box-shadow .16s ease;
+}
+#result-grid .color-square:hover{transform:translateY(-6px); box-shadow:0 14px 30px rgba(16,18,20,0.08)}
+.color-hex {
+    width:100%;
+    text-align:center;
+    padding:8px 6px;
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+    backdrop-filter: blur(3px);
+    font-weight:700;
+    letter-spacing:0.8px;
+}
+
+/* Popular / grids */
+.palette-card{
+    background:white;
+    border-radius:10px;
+    padding:12px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    box-shadow: 0 6px 20px rgba(15,16,18,0.04);
+    height:100%;
+}
+.swatch-row{display:flex; gap:6px; align-items:stretch}
+.swatch{
+    flex:1;
+    height:76px;
+    border-radius:6px;
+    position:relative;
+    transition:transform .14s ease, box-shadow .14s ease;
+    cursor:pointer;
+}
+.swatch:hover{transform:scale(1.06); z-index:3; box-shadow:0 10px 26px rgba(16,18,20,0.12)}
+.swatch .swatch-hex{
+    position:absolute;
+    bottom:6px;
+    left:6px;
+    right:6px;
+    text-align:center;
+    font-weight:700;
+    color:rgba(255,255,255,0.95);
+    text-shadow:0 1px 0 rgba(0,0,0,0.35);
+    font-size:13px;
+    padding:4px 6px;
+    border-radius:4px;
+    background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.28));
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity .12s ease, transform .12s ease;
+}
+.swatch:hover .swatch-hex{opacity:1; transform:translateY(0)}
+
+/* Card actions */
+.card-action{display:flex; justify-content:flex-start; align-items:center; gap:10px}
+.btn-outline-accent{
+    border-radius:999px;
+    border:2px solid rgba(216,27,96,0.08);
+    color:var(--accent);
+    background:transparent;
+    padding:.38rem .9rem;
+}
+
+/* FAQ and footer */
+#faq .accordion-button{font-weight:600}
+footer{background:linear-gradient(180deg,#0b0c0d,#151617); color:white}
+
+/* responsive tweaks */
+@media (max-width:991px){
+    .hero-right{display:none}
+}
+@media (max-width:575px){
+    #result-grid .color-square{height:100px}
+    .swatch{height:62px}
+}
+
+/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+/*------------- END MEDIA QUERIES -------------*/
