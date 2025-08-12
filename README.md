@@ -1,6 +1,6 @@
-# Pensieve 🧠✨
+# Ink 🎨✨
 
-Welcome to **Pensieve**, a minimalist and interactive website for writing, saving, and reflecting on your ideas. Pensieve offers a modern, private, and visually compelling environment for expressing your ideas, with features like dark mode, voice input, and local storage.
+Welcome to **Ink**, a minimalist and interactive website for generating, saving, and exploring professional color palettes. Ink offers a modern, private, and visually compelling environment for designers, with features like palette harmonies, variants, and instant preview.
 
 ---
 
@@ -20,33 +20,32 @@ Welcome to **Pensieve**, a minimalist and interactive website for writing, savin
 
 ## Description
 
-Pensieve is a website designed for quick and private note-taking. Write down what you're thinking, save it instantly, and review it whenever you want. All your data is saved on your device, ensuring your privacy and security.
+Ink is a website designed for quick and creative color palette generation. Choose a base color, select harmony types, and instantly preview beautiful combinations. All your palettes are generated locally, ensuring privacy and speed.
 
 ## Features
 
-- Write and save thoughts instantly
-- Voice-to-text input (speech recognition)
-- Dark mode and light mode toggle
-- Blur/unblur thoughts for privacy
+- Generate professional color palettes instantly
+- Choose harmony types (analogous, monochromatic, triadic, complementary, tetradic)
+- Select number of variants for each palette
 - Responsive and modern design
-- Auto-resizing textarea for comfortable writing
-- Local storage: your thoughts are saved only on your device
+- Preview palettes with accessibility tips
+- Local generation: no backend required
 
 ## Technologies Used
 
 - **Frontend:** HTML, CSS, JavaScript
-- **Icons:** Font Awesome, Google Material Icons
+- **Frameworks:** Bootstrap
 - **Version Control:** Git & GitHub
 
 ## Project Structure
 
 ```
-Pensieve/
+Ink/
 ├── assets/
 │   ├── icons/
-│   │   └── pensieve-icon.png
+│   │   └── ink-icon.png
 │   └── images/
-│       └── pensieve-images.png
+│       └── ink-og-image.jpg
 ├── index.html
 ├── layout.css
 ├── main.js
@@ -56,12 +55,10 @@ Pensieve/
 ## 📋 Main Features
 
 - ✅ Minimalist and visually attractive interface
-- ✅ Dark mode and light mode support
-- ✅ Voice input for hands-free note-taking
-- ✅ Blur/unblur for privacy
+- ✅ Palette harmonies and variants
 - ✅ Responsive layout for all devices
-- ✅ All data stored locally (no backend required)
-- ✅ Ready to expand with more lessons and features
+- ✅ All palettes generated locally (no backend required)
+- ✅ Ready to expand with more features
 
 ---
 
@@ -69,8 +66,8 @@ Pensieve/
 
 1. Clone the repository:
    ```bash
-    git clone https://github.com/workamts/Pensieve
-    cd Pensieve
+   git clone https://github.com/workamts/Ink
+   cd Ink
    ```
 
 ## License
@@ -82,14 +79,10 @@ This project is under the MIT license. See the [LICENSE](LICENSE) file for more 
 - Author: Anderson Tovar - Workamts
 - Email: workamts.dev@gmail.com
 - Portfolio: [https://workamts.github.io/](https://workamts.github.io/)
-- Upwork: [https://www.upwork.com/freelancers/~0179a587deec28a4ba](https://www.upwork.com/freelancers/~0179a587deec28a4ba)
-- Freelancer: [https://www.freelancer.com/u/Workamts](https://www.freelancer.com/u/Workamts)
-- Fiverr: [https://es.fiverr.com/workamts/create-your-professional-online-store?view=gig&gig_id=437067906](https://es.fiverr.com/workamts/create-your-professional-online-store?view=gig&gig_id=437067906)
-- Workana: [https://www.workana.com/freelancer/fcf206ab3db30166087855a1bce7e1d2](https://www.workana.com/freelancer/fcf206ab3db30166087855a1bce7e1d2)
 - LinkedIn: [https://www.linkedin.com/in/workamts](https://www.linkedin.com/in/workamts)
 
 ---
 
-Thank you for supporting open, private, and creative tools! 🧠✨
+Thank you for supporting open, creative, and inspiring tools! 🎨✨
 
 ---
