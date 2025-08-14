@@ -54,7 +54,7 @@
             <div class="hero-intro col-lg-6 hero-left">
                 <h1 class="display-2">Create your color palettes</h1>
                 <p class="lead">Design professional color combinations in seconds.</p>
-                <div class="mt-5">
+                <div class="mt-1">
                     <button id="hero-generate" class="btn btn-accent btn-lg" type="button" aria-label="Generate color palette">
                         Generate color palette
                     </button>
@@ -73,54 +73,50 @@
         </section>
 
         <!-- Palette Generation Section -->
-        <section id="generator" class="py-5 bg-light" aria-label="Palette Generator">
-            <div class="card p-3 shadow-sm">
-                <div class="row g-3 align-items-end">
-                    <div class="col-md-4">
-                        <label class="form-label" for="hex-input">Base color (HEX)</label>
-                        <input id="hex-input" class="form-control" placeholder="#E91E63 or choose an option" list="preset-colors"/>
-                        <datalist id="preset-colors">
-                            <option value="#FF4081">Rosado</option>
-                            <option value="#FFEB3B">Amarillo claro</option>
-                            <option value="#F06292">Rosa suave</option>
-                            <option value="#212121">Negro suave</option>
-                            <option value="#ECEFF1">Blanco humo</option>
-                            <option value="#9E9E9E">Gris</option>
-                            <option value="#FF5252">Rojo</option>
-                        </datalist>
-                    </div>
-
-                    <div class="col-md-3">
-                        <label class="form-label" for="harmony-select">Harmony type</label>
-                        <select id="harmony-select" class="form-select" aria-label="Select harmony">
-                            <option value="analogous">Analogous</option>
-                            <option value="monochromatic">Monochromatic</option>
-                            <option value="triadic">Triadic</option>
-                            <option value="complementary">Complementary</option>
-                            <option value="tetradic">Tetradic</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-2">
-                        <label class="form-label" for="count-select" >Variants</label>
-                        <select id="count-select" class="form-select" aria-label="Select number of variants">
-                            <option value="3">3</option>
-                            <option value="5" selected>5</option>
-                            <option value="7">7</option>
-                            <option value="9">9</option>
-                        </select>
-                    </div>
-
-                    <div class="col-md-3 text-md-end">
-                        <button id="generate-palette" class="btn btn-dark btn-lg w-100" aria-label="Generate palette">Generate</button>
-                    </div>
+        <section id="generator" aria-label="Palette Generator">
+            <div id="generator-controls" class="align-items-center">
+                <div class="col-md-4">
+                    <label class="form-label" for="hex-input">Base color (HEX)</label>
+                    <input id="hex-input" class="form-control" placeholder="#E91E63 or choose an option" list="preset-colors"/>
+                    <datalist id="preset-colors">
+                        <option value="#FF4081">Rosado</option>
+                        <option value="#FFEB3B">Amarillo claro</option>
+                        <option value="#F06292">Rosa suave</option>
+                        <option value="#212121">Negro suave</option>
+                        <option value="#ECEFF1">Blanco humo</option>
+                        <option value="#9E9E9E">Gris</option>
+                        <option value="#FF5252">Rojo</option>
+                    </datalist>
                 </div>
 
-                <!-- Result container -->
-                <div id="generated-result" class="mt-4" aria-live="polite">
-                    <!-- Squares will be injected here -->
-                    <div id="result-grid" class="row g-3"></div>
+                <div class="col-md-3">
+                    <label class="form-label" for="harmony-select">Harmony type</label>
+                    <select id="harmony-select" class="form-select" aria-label="Select harmony">
+                        <option value="analogous">Analogous</option>
+                        <option value="monochromatic">Monochromatic</option>
+                        <option value="triadic">Triadic</option>
+                        <option value="complementary">Complementary</option>
+                        <option value="tetradic">Tetradic</option>
+                    </select>
                 </div>
+
+                <div class="col-md-2">
+                    <label class="form-label" for="count-select" >Variants</label>
+                    <select id="count-select" class="form-select" aria-label="Select number of variants">
+                        <option value="3">3</option>
+                        <option value="5" selected>5</option>
+                        <option value="7">7</option>
+                        <option value="9">9</option>
+                    </select>
+                </div>
+
+                <button id="generate-palette" class="btn" aria-label="Generate palette">Generate</button>
+            </div>
+
+            <!-- Result container -->
+            <div id="generated-result" class="mt-4" aria-live="polite">
+                <!-- Squares will be injected here -->
+                <div id="result-grid" class="row g-3"></div>
             </div>
         </section>
 
