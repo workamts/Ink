@@ -449,10 +449,10 @@ header {
     background-color: transparent !important;
 }
 
-/* Section title */
+/* Title */
 .section__title {
     width: 100%;
-    font-size: 2rem;
+    font-size: clamp(2.5rem, 5vw, 3rem);
 }
 
 /* Color palette container */
@@ -596,7 +596,6 @@ header {
         top: 30px;
         left: 0;
         width: auto;
-        font-size: 2.5rem;
     }
 
     .btn__container {
@@ -687,7 +686,7 @@ header {
 }
 
 #faqAccordion .accordion-body + .accordion-body {
-    margin-top: -55px;
+    margin-top: -50px;
 }
 
 
