@@ -35,7 +35,6 @@ html {
 *::after {
     padding: 0;
     box-sizing: border-box !important;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -57,7 +56,7 @@ body {
     margin: 0 !important;
     line-height: 1.6;
     overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "DM Sans", sans-serif;
     color: var(--color-septenary);
     background: var(--color-tertiary);
     word-wrap: break-word;
@@ -112,7 +111,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 100px;
     width: 85vw;
     max-width: 1300px;
@@ -120,23 +119,14 @@ header {
     margin: 0 auto;
 }
 
-#hero-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    border: 1px solid;
-}
-
 .hero-intro {
-    width: 100%;
-    max-width: 450px;
-    margin-top: 120px;
+    width: auto;
+    margin-top: 100px;
 }
 
-.display-2 {
+.display-3 {
     width: 100%;
+    font-weight: 500;
 }
 
 .hero .lead {
@@ -168,13 +158,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
-}
-
-.hero__images {
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0px 18px rgba(216,27,96,0.2);
+    width: 100%;
 }
 
 .group__images1,
@@ -184,15 +168,25 @@ header {
     width: 100%;
 }
 
+.hero__images {
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0px 18px rgba(216,27,96,0.2);
+}
+
 #img1 {
     margin-bottom: 20px;
-    width: clamp(100px, 13vw, 300px);
+    width: 28vw;
+    max-width: 200px;
+    object-fit: cover;
 }
 
 #img2 {
     margin-top: 16px;
     margin-right: 20px;
-    width: clamp(200px, 26vw, 400px);
+    width: 48vw;
+    max-width: 343px;
+    object-fit: cover;
 }
 
 .group__images2 {
@@ -203,13 +197,17 @@ header {
 #img3 {
     margin-left: 10px;
     margin-top: 30px;
-    width: clamp(130px, 17vw, 330px);
+    width: 34vw;
+    max-width: 243px;
+    object-fit: cover;
 }
 
 #img4 {
     margin-top: 20px;
     margin-bottom: 20px;
-    width: clamp(150px, 20vw, 350px);
+    width: 38vw;
+    max-width: 272px;
+    object-fit: cover;
 }
 
 
@@ -218,16 +216,33 @@ header {
     #hero {
         flex-direction: row;
         justify-content: space-between;
-        gap: 0;
-        min-height: 85vh;
+        align-items: center;
+        min-height: calc(100vh - 74px);
     }
 
     .hero-intro {
-        margin-top: 120px;
+        flex: 1 1 0;
+        margin-top: 0px;
     }
 
-    .display-2 {
+    #hero-container-images {
         width: auto;
+    }
+
+    #img1 {
+        width: 12vw;
+    }
+
+    #img2 {
+        width: 21vw;
+    }
+
+    #img3 {
+        width: 15vw;
+    }
+
+    #img4 {
+        width: 16.5vw;
     }
 }
 
