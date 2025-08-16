@@ -1,11 +1,11 @@
 /*==============================
-=   JavaScript From Scratch - JS
+=   Ink - JS
 =   File: main.js
 ==============================*/
 
-/*==============================
+/*====================================
 =   Event Listeners & Initializations
-==============================*/
+====================================*/
 
 // DOM references
 const heroGenerateBtn = document.getElementById('hero-generate');
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const monoGrid = document.getElementById('mono-grid');
     const regenMono = document.getElementById('regen-mono');
 
-    // Prefijo # fijo en input HEX
+    // Fixed # prefix in HEX input
     hexInput.style.paddingLeft = '28px';
     hexInput.style.textTransform = 'uppercase';
     hexInput.parentElement.style.position = 'relative';
@@ -43,36 +43,40 @@ document.addEventListener('DOMContentLoaded', function () {
         hexInput.parentElement.appendChild(prefix);
     }
 
-    // Convertir a mayúsculas en tiempo real
+    // Convert to uppercase in real time
     hexInput.addEventListener('input', function () {
         this.value = this.value.toUpperCase();
     });
 
-    // Paleta de colores de inicialización temporal para pruebas
+    // Temporary color palette for testing
     const testPalette = [
         '#F6286A', '#F63140', '#F75C3B', '#F79145', '#F8C14F',
         '#F9E06A', '#F7F48B', '#E2F7A1', '#B6F7C1'
     ];
-    // Siempre muestra la paleta de prueba al cargar la página
+    // Always show the test palette when the page loads
     renderGeneratedPalette(testPalette[0].replace('#',''), 'analogous', testPalette.length);
 
-    // Validación antes de generar
+    // Show 12 palettes in Popular and Monochromatic on page load
+    fillPopularGrid();
+    fillMonoGrid();
+
+    // Validation before generating
     generateBtn.addEventListener('click', function (e) {
         let hexVal = hexInput.value.trim().toUpperCase();
         const harmonyVal = harmonySelect.value;
         const countVal = countSelect.value;
 
-        // Solo permite si hay al menos 3 caracteres válidos (0-9, A-F)
+        // Only allow if at least 3 valid characters (0-9, A-F)
         const hexRegex = /^[0-9A-F]{3,6}$/;
         if (!hexVal || hexVal.length < 3 || !hexRegex.test(hexVal)) {
             e.preventDefault();
-            resultGrid.innerHTML = ''; // Vacía el grid de colores
+            resultGrid.innerHTML = '';
             generateBtn.classList.add('btn-danger');
             setTimeout(() => generateBtn.classList.remove('btn-danger'), 1200);
             return;
         }
 
-        // Convertir a 6 caracteres según reglas:
+        // Convert to 6 characters according to rules:
         if (hexVal.length === 3) {
             hexVal = hexVal[0] + hexVal[0] + hexVal[1] + hexVal[1] + hexVal[2] + hexVal[2];
         } else if (hexVal.length === 4) {
@@ -81,36 +85,36 @@ document.addEventListener('DOMContentLoaded', function () {
             hexVal = hexVal[0] + hexVal[0] + hexVal[1] + hexVal[1] + hexVal[2] + hexVal[3];
         }
 
-        hexInput.value = hexVal; // Actualiza el input para mostrar el HEX completo
+        hexInput.value = hexVal; // Update input to show full HEX
 
         renderGeneratedPalette(hexVal, harmonyVal, parseInt(countVal, 10) || 5);
         document.getElementById('generated-result').scrollIntoView({behavior:'smooth', block:'center'});
     });
 
-    // Scrolling desde hero a generator
+    // Scrolling from hero to generator
     heroGenerateBtn.addEventListener('click', (e) => {
         document.getElementById('generator').scrollIntoView({behavior:'smooth', block:'start'});
         setTimeout(()=> hexInput.focus(), 600);
     });
 
-    // Regenerar grids populares y monocromáticos
+    // Regenerate popular and monochromatic grids
     regenPopular.addEventListener('click', (e) => {
         fillPopularGrid();
-        showToast('Nuevas paletas generadas');
+        showToast('New palettes generated');
     });
     regenMono.addEventListener('click', (e) => {
         fillMonoGrid();
-        showToast('Nuevas paletas monocromáticas');
+        showToast('New monochromatic palettes generated');
     });
 
-    // Accesibilidad: Enter en hexInput genera paleta
+    // Accessibility: Enter key in hexInput generates palette
     hexInput.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
             generateBtn.click();
         }
     });
 
-    // Copiar color al hacer click en swatch generado
+    // Copy color when clicking on generated swatch
     resultGrid.addEventListener('click', (e) => {
         const sq = e.target.closest('.color-square');
         if (sq) {
@@ -122,9 +126,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 /*==============================
-=   Render de paleta generada
+=   Render generated palette
 ==============================*/
 
 function renderGeneratedPalette(hex, harmony, count) {
@@ -142,7 +145,7 @@ function renderGeneratedPalette(hex, harmony, count) {
         label.className = 'color-hex';
         label.textContent = col.toUpperCase();
 
-        // Determinar color de texto según el fondo (luminancia)
+        // Set text color based on background (luminance)
         const { r, g, b } = hexToRgb(col);
         const luminance = (0.2126*r + 0.7152*g + 0.0722*b) / 255;
         label.style.color = luminance > 0.7 ? '#222' : '#fff';
@@ -157,9 +160,9 @@ function renderGeneratedPalette(hex, harmony, count) {
 
 
 
-/*==============================
+/*======================================
 =   Helper Functions (Color Conversion)
-==============================*/
+======================================*/
 
 // Clamp helper
 function clamp(v, a = 0, b = 1) { return Math.min(b, Math.max(a, v)); }
@@ -240,6 +243,8 @@ function randomHex() {
     for (let i = 0; i < 6; i++) color += letters[Math.floor(Math.random() * 16)];
     return color;
 }
+
+
 
 /*==============================
 =   Paleta Generator Section
@@ -327,14 +332,13 @@ function generatePaletteFrom(hex, harmony, count) {
     return generateAnalogous(baseHsl, count);
 }
 
+
+
 /*==============================
 =   Popular Section
 ==============================*/
 
-function buildPaletteCard(colors) {
-    const col = document.createElement('div');
-    col.className = 'col-12 col-sm-6 col-md-4 col-lg-3';
-
+function buildPaletteCard(colors, harmonyType = 'analogous') {
     const card = document.createElement('div');
     card.className = 'palette-card';
 
@@ -350,6 +354,11 @@ function buildPaletteCard(colors) {
         hexSpan.className = 'swatch-hex';
         hexSpan.textContent = c;
 
+        // Set text color based on luminance
+        const { r, g, b } = hexToRgb(c);
+        const luminance = (0.2126*r + 0.7152*g + 0.0722*b) / 255;
+        hexSpan.style.color = luminance > 0.7 ? '#222' : '#fff';
+
         sw.addEventListener('click', () => copyToClipboard(c));
 
         sw.appendChild(hexSpan);
@@ -361,14 +370,14 @@ function buildPaletteCard(colors) {
 
     const view = document.createElement('a');
     view.href = '#';
-    view.textContent = 'Ver paleta';
+    view.textContent = 'View Palette';
     view.className = 'link-primary';
     view.onclick = (e) => {
         e.preventDefault();
-        hexInput.value = colors[0];
-        harmonySelect.value = 'analogous';
+        hexInput.value = colors[0].replace('#', '');
+        harmonySelect.value = harmonyType;
         countSelect.value = String(colors.length);
-        renderGeneratedPalette(colors[0], 'analogous', colors.length);
+        renderGeneratedPalette(colors[0], harmonyType, colors.length);
         document.getElementById('generator').scrollIntoView({behavior:'smooth', block:'start'});
     };
 
@@ -376,23 +385,50 @@ function buildPaletteCard(colors) {
 
     card.appendChild(swatchRow);
     card.appendChild(action);
-    col.appendChild(card);
 
-    return col;
+    return card;
 }
 
-function randomPalette(count = 5){
-    const base = randomHex();
-    return generatePaletteFrom(base, 'analogous', count);
+function randomPalette(type = 'analogous', count = 5) {
+    let base, harmony = type;
+    // Earth tones: natural and muted colors
+    if (type === 'earth') {
+        const earthBases = [
+            '#A0522D',
+            '#8B4513',
+            '#C2B280',
+            '#6B8E23',
+            '#BDB76B',
+            '#D2B48C',
+            '#8F9779',
+        ];
+        base = earthBases[Math.floor(Math.random() * earthBases.length)];
+        harmony = 'monochromatic';
+    } else {
+        base = randomHex();
+    }
+    return generatePaletteFrom(base, harmony, count);
 }
 
-function fillPopularGrid(){
+function fillPopularGrid() {
     popularGrid.innerHTML = '';
-    for (let i = 0; i < 12; i++){
-        const p = randomPalette(5);
-        popularGrid.appendChild(buildPaletteCard(p));
+    const types = [
+        'analogous',
+        'complementary',
+        'tetradic',
+        'triadic',
+        'earth'
+    ];
+    const totalPalettes = 12;
+    for (let i = 0; i < totalPalettes; i++) {
+        const type = types[i % types.length];
+        const p = randomPalette(type, 5);
+        const harmonyType = type === 'earth' ? 'earth' : type;
+        popularGrid.appendChild(buildPaletteCard(p, harmonyType));
     }
 }
+
+
 
 /*==============================
 =   Monochromatic Section
@@ -403,22 +439,24 @@ function fillMonoGrid(){
     for (let i = 0; i < 12; i++){
         const seed = randomHex();
         const p = generatePaletteFrom(seed, 'monochromatic', 5);
-        monoGrid.appendChild(buildPaletteCard(p));
+        monoGrid.appendChild(buildPaletteCard(p, 'monochromatic'));
     }
 }
+
+
 
 /*==============================
 =   Utilities & Toasts
 ==============================*/
 
-// copy text to clipboard with small feedback
+// Copy text to clipboard with small feedback
 async function copyToClipboard(text) {
     try {
         await navigator.clipboard.writeText(text);
-        showToast(`${text} copiado.`);
+        showToast(`${text} copied.`);
     } catch (err) {
         console.error('Clipboard error', err);
-        showToast('No se pudo copiar');
+        showToast('Could not copy');
     }
 }
 

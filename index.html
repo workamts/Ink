@@ -6,26 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- SEO -->
-    <title>Ink: Color Palette Generator</title>
-    <meta name="description" content="Ink: Genera paletas de colores profesionales en segundos. Elige armonías, variantes y personaliza tu identidad visual fácilmente."/>
-    <meta name="keywords" content="Ink, generador de paletas, colores, diseño, armonía, color palette, UI, branding"/>
+    <title>Ink: Professional Color Palette Generator</title>
+    <meta name="description" content="Ink: Instantly generate professional color palettes. Choose harmonies, variants, and customize your visual identity easily."/>
+    <meta name="keywords" content="Ink, color palette generator, colors, design, harmony, color palette, UI, branding, accessibility, web design"/>
     <meta name="author" content="Anderson Tovar" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://tusitio.com/ink/" />
+    <link rel="canonical" href="https://yourwebsite.com/ink/" />
 
     <!-- Open Graph metadata for social sharing -->
-    <meta property="og:title" content="Ink: Color Palette Generator" />
-    <meta property="og:description" content="Crea y personaliza paletas de colores para tus proyectos de diseño con Ink."/>
-    <meta property="og:image" content="https://tusitio.com/assets/images/ink-og-image.jpg"/>
-    <meta property="og:url" content="https://tusitio.com/ink/" />
+    <meta property="og:title" content="Ink: Professional Color Palette Generator" />
+    <meta property="og:description" content="Create and customize color palettes for your design projects with Ink."/>
+    <meta property="og:image" content="https://yourwebsite.com/assets/images/ink-og-image.jpg"/>
+    <meta property="og:url" content="https://yourwebsite.com/ink/" />
     <meta property="og:type" content="website" />
 
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Ink: Color Palette Generator" />
-    <meta name="twitter:description" content="Crea paletas de colores únicas y profesionales con Ink."/>
-    <meta name="twitter:image" content="https://tusitio.com/assets/images/ink-og-image.jpg"/>
+    <meta name="twitter:title" content="Ink: Professional Color Palette Generator" />
+    <meta name="twitter:description" content="Create unique and professional color palettes with Ink."/>
+    <meta name="twitter:image" content="https://yourwebsite.com/assets/images/ink-og-image.jpg"/>
 
     <!-- Theme color for mobile browsers -->
     <meta name="theme-color" content="#f4f6f8" />
@@ -42,9 +42,11 @@
 <body>
     <!-- Header -->
     <header role="banner" aria-label="Home - Palette Generator">
-        <a class="brand d-flex align-items-center" href="#" aria-label="Go to homepage">
-            <img id="header-logo" src="assets/icons/logo-ink.svg" alt="">
-        </a>
+        <div id="header-content">
+            <a class="brand d-flex align-items-center" href="#" aria-label="Go to homepage">
+                <img id="header-logo" src="assets/icons/logo-ink.svg" alt="Ink logo" width="48" height="48">
+            </a>
+        </div>
     </header>
 
     <!-- Main Content -->
@@ -62,54 +64,55 @@
             </div>
             <div id="hero-container-images" class="col-lg-6 hero-right d-lg-flex justify-content-center">
                 <div class="group__images1">
-                    <img class="hero__images" id="img1" src="assets/images/hero-img1.jpg" alt="">
-                    <img class="hero__images" id="img2" src="assets/images/hero-img2.jpg" alt="">
+                    <img class="hero__images" id="img1" src="assets/images/hero-img1.jpg" alt="Colorful abstract design 1" width="180" height="180">
+                    <img class="hero__images" id="img2" src="assets/images/hero-img2.jpg" alt="Colorful abstract design 2" width="180" height="180">
                 </div>
                 <div class="group__images2">
-                    <img class="hero__images" id="img3" src="assets/images/hero-img3.jpg" alt="">
-                    <img class="hero__images" id="img4" src="assets/images/hero-img4.jpg" alt="">
+                    <img class="hero__images" id="img3" src="assets/images/hero-img3.jpg" alt="Colorful abstract design 3" width="180" height="180">
+                    <img class="hero__images" id="img4" src="assets/images/hero-img4.jpg" alt="Colorful abstract design 4" width="180" height="180">
                 </div>
             </div>
         </section>
 
         <!-- Palette Generation Section -->
         <section id="generator" aria-label="Palette Generator">
-            <div id="generator-controls" class="align-items-center">
+            <div id="generator-controls" class="align-items-center" role="form" aria-labelledby="generator-controls-label">
                 <div class="col-md-4">
                     <label class="form-label" for="hex-input">Base color (HEX)</label>
-                    <input id="hex-input" class="form-control" placeholder="E91E63" list="preset-colors"/>
+                    <input id="hex-input" class="form-control" placeholder="E91E63" list="preset-colors" aria-describedby="hex-input-desc" aria-required="true"/>
+                    <span id="hex-input-desc" class="visually-hidden">Enter a HEX color code or select a preset color.</span>
                     <datalist id="preset-colors">
-                        <option value="FF4081">Rosado</option>
-                        <option value="FFEB3B">Amarillo claro</option>
-                        <option value="F06292">Rosa suave</option>
-                        <option value="212121">Negro suave</option>
-                        <option value="ECEFF1">Blanco humo</option>
-                        <option value="9E9E9E">Gris</option>
-                        <option value="FF5252">Rojo</option>
+                        <option value="FF4081">Pink</option>
+                        <option value="FFEB3B">Light Yellow</option>
+                        <option value="F06292">Soft Pink</option>
+                        <option value="212121">Soft Black</option>
+                        <option value="ECEFF1">Smoke White</option>
+                        <option value="9E9E9E">Gray</option>
+                        <option value="FF5252">Red</option>
                     </datalist>
                 </div>
 
                 <div class="col-md-3">
                     <label class="form-label" for="harmony-select">Harmony type</label>
-                    <select id="harmony-select" class="form-select" aria-label="Select harmony">
+                    <select id="harmony-select" class="form-select" aria-label="Select harmony type" aria-required="true">
                         <option value="analogous">Analogous</option>
                         <option value="monochromatic">Monochromatic</option>
                         <option value="triadic">Triadic</option>
                         <option value="complementary">Complementary</option>
                         <option value="tetradic">Tetradic</option>
+                        <option value="earth">Earth Tones</option>
                     </select>
                 </div>
 
                 <div class="col-md-2">
-                    <label class="form-label" for="count-select" >Variants</label>
-                    <select id="count-select" class="form-select" aria-label="Select number of variants">
+                    <label class="form-label" for="count-select">Variants</label>
+                    <select id="count-select" class="form-select" aria-label="Select number of variants" aria-required="true">
                         <option value="3">3</option>
                         <option value="5" selected>5</option>
                         <option value="7">7</option>
                         <option value="9">9</option>
                     </select>
                 </div>
-
                 <button id="generate-palette" class="btn" aria-label="Generate palette">Generate</button>
             </div>
 
@@ -122,87 +125,188 @@
 
         <!-- Popular Palettes Section -->
         <section id="popular" class="py-5" aria-label="Popular palettes">
-            <div id="popular-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2>Popular</h2>
-                    <button id="regen-popular" class="btn btn-outline-accent" aria-label="Generate more palettes">Generate more palettes</button>
-                </div>
-                <div id="popular-grid" class="row g-3" aria-live="polite">
-                    <!-- 12 palettes generated via JS -->
-                </div>
+            <h2 class="section__title">Popular</h2>
+            <div id="popular-grid" aria-live="polite">
+                <!-- 12 palettes generated via JS -->
+            </div>
+            <div class="btn__container">
+                <button id="regen-popular" class="btn btn-outline-accent" aria-label="Generate more palettes">Generate more palettes</button>
             </div>
         </section>
 
-
         <!-- Monochromatic Palettes Section -->
         <section id="monochrome" class="py-5 bg-light" aria-label="Monochromatic palettes">
-            <div id="monochrome-content">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h2>Monochromatic palettes</h2>
-                    <button id="regen-mono" class="btn btn-outline-accent" aria-label="Generate more monochromatic palettes">Generate more</button>
-                </div>
-                <div id="mono-grid" class="row g-3" aria-live="polite">
-                    <!-- 12 monochromatic palettes -->
-                </div>
+            <h2 class="section__title">Monochromatic palettes</h2>
+            <div id="mono-grid" aria-live="polite">
+                <!-- 12 monochromatic palettes -->
+            </div>
+            <div class="btn__container">
+                <button id="regen-mono" class="btn btn-outline-accent" aria-label="Generate more monochromatic palettes">Generate more</button>
             </div>
         </section>
 
         <!-- FAQ Section -->
         <section id="faq" class="py-5" aria-label="Frequently Asked Questions">
-            <div id="faq-content">
-                <h2 class="mb-4 text-center">Learn more about palettes</h2>
-                <!-- FAQ List -->
-                <div class="accordion" id="faqAccordion" role="tablist">
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq1-heading">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1" aria-label="What is a palette generated by this tool?">
-                                What is a palette generated by this tool?
-                            </button>
-                        </h3>
-                        <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" role="tabpanel" aria-labelledby="faq1-heading">
-                            <p class="accordion-body">
-                                Each palette is built from a <strong>base color</strong> using harmony rules (analogous, complementary, etc.) and variations in lightness/saturation to get practical combinations.
-                            </p>
-                        </div>
+            <h2 class="mb-4 text-center">Learn more about palettes</h2>
+            <!-- FAQ List -->
+            <div class="accordion py-5" id="faqAccordion" role="tablist">
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq1-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                            What is a color palette?
+                        </button>
+                    </h3>
+                    <div id="faq1" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq1-heading">
+                        <p class="accordion-body">
+                            A color palette is an organized selection of tones used together to convey specific sensations, ideas, or values in a design. Palettes can include few or many colors, and choosing them correctly helps create visual harmony, reinforce brand identity, and facilitate graphic communication.
+                        </p>
+                        <p class="accordion-body">
+                            In graphic, web, and branding design, color palettes help maintain coherence and appeal across all visual elements, from logos to interfaces and printed materials.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq2-heading">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2" aria-label="What are the different harmonies for?">
-                                What are the different harmonies for?
-                            </button>
-                        </h3>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" role="tabpanel" aria-labelledby="faq2-heading">
-                            <p class="accordion-body">
-                                Harmonies guide the relationship between colors: for example, complementary creates contrast, analogous generates smooth cohesion, and monochromatic works with variations of a single hue.
-                            </p>
-                        </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq2-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                            How to create a color palette?
+                        </button>
+                    </h3>
+                    <div id="faq2" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq2-heading">
+                        <p class="accordion-body">
+                            To create an effective color palette, start by choosing a base color that represents the message or personality you want to convey. Then, use chromatic harmony rules such as analogous, complementary, triadic, tetradic, or monochromatic to select additional colors that work well together.
+                        </p>
+                        <p class="accordion-body">
+                            Consider the contrast between colors, their application in different elements (backgrounds, texts, buttons), and test the palette in various contexts to ensure readability and visual appeal. Digital tools can help you visualize combinations and adjust tones, saturation, and brightness as needed.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq3-heading">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3" aria-label="How can I use the palette in my visual identity?">
-                                How can I use the palette in my visual identity?
-                            </button>
-                        </h3>
-                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" role="tabpanel" aria-labelledby="faq3-heading">
-                            <p class="accordion-body">
-                                Use the darkest color for text and backgrounds, the most vivid for calls to action, and the intermediate ones for accents and secondary backgrounds. Test contrast and accessibility before applying.
-                            </p>
-                        </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq3-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                            Generating color palettes
+                        </button>
+                    </h3>
+                    <div id="faq3" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq3-heading">
+                        <p class="accordion-body">
+                            The palette generator lets you create color combinations automatically and professionally. Just enter a base color in HEX format and select the harmony type you prefer (analogous, complementary, triadic, tetradic, monochromatic, or earth tones).
+                        </p>
+                        <p class="accordion-body">
+                            You can also choose the number of variants you want in your palette. The tool applies chromatic rules to generate colors that complement and harmonize with each other, making the design process easier and ensuring visually attractive and functional results for any project.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq4-heading">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4" aria-label="Can I manually adjust a color before generating?">
-                                Can I manually adjust a color before generating?
-                            </button>
-                        </h3>
-                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion" role="tabpanel" aria-labelledby="faq4-heading">
-                            <p class="accordion-body">
-                                Yes: enter a HEX in the base field or choose an option from the dropdown. The tool will use that starting point to calculate the palette.
-                            </p>
-                        </div>
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq4-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                            How to choose a color palette?
+                        </button>
+                    </h3>
+                    <div id="faq4" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq4-heading">
+                        <p class="accordion-body">
+                            Choosing the right color palette involves analyzing the message you want to communicate, your target audience, and the context of use. Consider color psychology and how each tone can influence users' emotions and perceptions.
+                        </p>
+                        <p class="accordion-body">
+                            Try different chromatic harmonies and check the contrast between colors to ensure accessibility and readability, especially for texts and interactive elements. Validate the palette on different devices and backgrounds, and make sure the chosen colors reinforce visual identity and are consistent with the design's purpose.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq5-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                            Primary and secondary colors
+                        </button>
+                    </h3>
+                    <div id="faq5" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq5-heading">
+                        <p class="accordion-body">
+                            Primary colors are those that cannot be obtained by mixing other colors: red, blue, and yellow. They are the foundation for creating all other colors in the color wheel.
+                        </p>
+                        <p class="accordion-body">
+                            Mixing two primary colors in equal parts produces secondary colors: green (blue + yellow), orange (red + yellow), and violet (red + blue). Understanding the relationship between primary and secondary colors is essential for creating balanced palettes and understanding how different chromatic combinations are formed in design.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq6-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                            Monochromatic colors
+                        </button>
+                    </h3>
+                    <div id="faq6" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq6-heading">
+                        <p class="accordion-body">
+                            A monochromatic palette consists of different tones, saturations, and brightness levels of a single color. This harmony is ideal for achieving cohesion and elegance in design, as all colors come from the same base and differ only in intensity or clarity.
+                        </p>
+                        <p class="accordion-body">
+                            Monochromatic palettes are easy to apply and allow you to highlight elements using soft contrasts, making them especially useful in minimalist projects or when aiming for calm and visual uniformity.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq7-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq7" aria-expanded="false" aria-controls="faq7">
+                            Complementary colors
+                        </button>
+                    </h3>
+                    <div id="faq7" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq7-heading">
+                        <p class="accordion-body">
+                            Complementary colors are those found in opposite positions on the color wheel, such as blue and orange or red and green. When combined, they create strong and vibrant contrast, making them ideal for highlighting important elements in design, such as buttons or calls to action.
+                        </p>
+                        <p class="accordion-body">
+                            However, it's recommended to use them in moderation to avoid excessive contrast that could hinder readability or overall visual harmony.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq8-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq8" aria-expanded="false" aria-controls="faq8">
+                            Analogous colors
+                        </button>
+                    </h3>
+                    <div id="faq8" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq8-heading">
+                        <p class="accordion-body">
+                            Analogous colors are those that are next to each other on the color wheel, such as blue, blue-green, and green. These combinations create soft and pleasant palettes, ideal for conveying tranquility, naturalness, and cohesion.
+                        </p>
+                        <p class="accordion-body">
+                            Analogous colors work well for backgrounds, illustrations, and secondary elements, as they maintain harmony without generating excessive contrast. It's recommended to choose a dominant color and use the others as complements to achieve balance in the design.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq9-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq9" aria-expanded="false" aria-controls="faq9">
+                            Tips for choosing a color palette
+                        </button>
+                    </h3>
+                    <div id="faq9" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq9-heading">
+                        <p class="accordion-body">
+                            When selecting a color palette, consider using dark tones for texts and main elements, vibrant colors to highlight important actions, and intermediate tones for backgrounds and details. Always check the contrast between colors to ensure accessibility and readability, especially for people with visual impairments.
+                        </p>
+                        <p class="accordion-body">
+                            Test the palette on different devices and contexts, and adjust tones according to your project's purpose and identity. Don't be afraid to experiment, but maintain visual consistency for a professional and attractive design.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="faq10-heading">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq10" aria-expanded="false" aria-controls="faq10">
+                            What is HEX code?
+                        </button>
+                    </h3>
+                    <div id="faq10" class="accordion-collapse collapse" role="tabpanel" aria-labelledby="faq10-heading">
+                        <p class="accordion-body">
+                            HEX code is a way to represent colors digitally using a combination of six alphanumeric characters preceded by the "#" symbol. Each pair of characters indicates the intensity of red, green, and blue (RGB) in the color, allowing millions of possible combinations.
+                        </p>
+                        <p class="accordion-body">
+                            It is widely used in web and graphic design for its precision and ease of use. For example, the code #E91E63 corresponds to a deep pink shade. Using HEX codes makes it easy to reproduce exact colors across different platforms and devices.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -211,10 +315,10 @@
 
     <!-- Footer -->
     <footer id="footer" role="contentinfo" aria-label="Site footer">
-        <p>&copy; 2025 Pensieve. Designed and developed by Anderson Tovar – Workamts.</p>
+        <p>&copy; 2025 Ink. Designed and developed by Anderson Tovar – Workamts.</p>
     </footer>
 
-    <!-- Bootstrap JS (Popper + bundle) y Script JS -->
+    <!-- Bootstrap JS (Popper + bundle) and Main JS Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js" defer></script>
 </body>
