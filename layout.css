@@ -287,9 +287,17 @@ header {
     max-width: 100%;
 }
 
-.hex-prefix {
+.form-label {
+    font-size: 1.1rem;
+}
+
+#input-wrapper {
+    position: relative;
+}
+
+#hex-prefix {
     position: absolute;
-    top: 55px;
+    top: 50%;
     left: 20px;
     font-size: 1.1rem;
     font-weight: bold;
@@ -298,7 +306,10 @@ header {
     transform: translate(-50%, -50%);
 }
 
-.form-control,
+.form-control {
+    padding: 8.6px 20px 8.6px 30px;
+}
+
 .form-select {
     padding: 10px 20px;
     border-radius: 8px;
@@ -314,7 +325,7 @@ header {
 }
 
 #generate-palette {
-    width: 200px;
+    width: 250px;
     border: 2px solid var(--color-primary);
     border-radius: 50px;
     margin-top: 10px;
@@ -392,6 +403,10 @@ header {
         margin-bottom: 0;
     }
 
+    #generate-palette {
+        width: 180px;
+    }
+
     #result-grid {
         flex-direction: row;
         width: clamp(650px, 80vw, 1200px);
@@ -404,7 +419,7 @@ header {
     }
 
     #result-grid .color-square:hover {
-        transform: scaleX(1.1);
+        transform: scaleY(1) scaleX(1.1);
     }
 }
 

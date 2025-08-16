@@ -32,17 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const monoGrid = document.getElementById('mono-grid');
     const regenMono = document.getElementById('regen-mono');
 
-    // Fixed # prefix in HEX input
-    hexInput.style.paddingLeft = '28px';
-    hexInput.style.textTransform = 'uppercase';
-    hexInput.parentElement.style.position = 'relative';
-    if (!hexInput.parentElement.querySelector('.hex-prefix')) {
-        const prefix = document.createElement('span');
-        prefix.textContent = '#';
-        prefix.className = 'hex-prefix';
-        hexInput.parentElement.appendChild(prefix);
-    }
-
     // Convert to uppercase in real time
     hexInput.addEventListener('input', function () {
         this.value = this.value.toUpperCase();

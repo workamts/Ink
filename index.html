@@ -84,8 +84,10 @@
             <div id="generator-controls" class="align-items-center" role="form" aria-labelledby="generator-controls-label">
                 <div class="col-md-4">
                     <label class="form-label" for="hex-input">Base color (HEX)</label>
-                    <input id="hex-input" class="form-control" placeholder="E91E63" list="preset-colors" aria-describedby="hex-input-desc" aria-required="true"/>
-                    <span id="hex-input-desc" class="visually-hidden">Enter a HEX color code or select a preset color.</span>
+                    <div id="input-wrapper">
+                        <span id="hex-prefix">#</span>
+                        <input id="hex-input" class="form-control" placeholder="E91E63" list="preset-colors" aria-describedby="hex-input-desc" aria-required="true"/>
+                    </div>
                     <datalist id="preset-colors">
                         <option value="FF4081">Pink</option>
                         <option value="FFEB3B">Light Yellow</option>
