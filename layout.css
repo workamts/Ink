@@ -320,9 +320,15 @@ header {
     display: flex;
     flex-direction: column;
     width: clamp(300px, 70vw, 700px);
+    height: auto;
     border-radius: 8px;
     margin-top: 30px;
     overflow: hidden;
+}
+
+/* Hide result grid when empty */
+#result-grid:empty {
+    display: none;
 }
 
 #result-grid .color-square {

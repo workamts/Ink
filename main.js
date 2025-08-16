@@ -48,14 +48,6 @@ document.addEventListener('DOMContentLoaded', function () {
         this.value = this.value.toUpperCase();
     });
 
-    // Temporary color palette for testing
-    const testPalette = [
-        '#F6286A', '#F63140', '#F75C3B', '#F79145', '#F8C14F',
-        '#F9E06A', '#F7F48B', '#E2F7A1', '#B6F7C1'
-    ];
-    // Always show the test palette when the page loads
-    renderGeneratedPalette(testPalette[0].replace('#',''), 'analogous', testPalette.length);
-
     // Show 12 palettes in Popular and Monochromatic on page load
     fillPopularGrid();
     fillMonoGrid();
